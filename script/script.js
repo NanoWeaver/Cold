@@ -3,6 +3,8 @@ const carouselItems = document.querySelectorAll('.carousel-item-shell');
 const spans = document.querySelectorAll('.dots');
 const nextButton = document.getElementById('next');
 const prevButton = document.getElementById('prev');
+const select = document.querySelector('.feedback-form-select')
+const phoneInput = document.querySelector('.feedback-form-tel');
 
 let currentSlide = 0; // Текущий индекс
 const slideWidth = carousel.offsetWidth; // Ширина видимой области карусели
@@ -32,4 +34,24 @@ prevButton.addEventListener('click', () => {
         }
         spans[currentSlide].classList.add('dots-active');
     }
+});
+
+select.addEventListener('change', () => {
+    select.classList.remove('select-placeholder');
+})
+
+phoneInput.addEventListener('input', () => {
+    let rawValue = phoneInput.value.replace(/\D/g, '');
+
+    if (!rawValue.startsWith('7')) {
+        rawValue = '7' + rawValue;
+    }
+
+    const formattedValue = rawValue.replace(
+        /^7(\d{3})(\d{3})(\d{4})$/,
+        '+7-$1-$2-$3'
+    );
+
+
+    phoneInput.value = formattedValue;
 });

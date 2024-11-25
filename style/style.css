@@ -60,10 +60,27 @@ h2 {
     text-decoration: none;
     color: #14171F;
     font-size: 18px;
+    transition: color 0.1s ease-in-out, filter 0.1s ease-in-out;
 }
+
+.nav-list-item a:hover  {
+    color: #667299;
+}
+
+.nav-list-item a:active {
+    color: #3D445C;
+} 
 
 .nav-list-item:last-child a {
     color: #F9995D;
+}
+
+.nav-list-item:last-child a:hover {
+    filter: brightness(1.4);
+}
+
+.nav-list-item:last-child a:active {
+    filter: brightness(1.2);
 }
 
 .hero {
@@ -72,16 +89,19 @@ h2 {
     background-repeat: no-repeat;
     width: 1440px;
     height: 646px;
-    padding: 150px 0 0 112px;
+    padding: 239px 0 0 112px;
     box-sizing: border-box;
 }
 
 .slogan-hero {
     font-weight: 700;
     font-size: 72px;
-    width: 600px;
+    width: 500px;
     line-height: auto;
     margin: 0;
+    color: #292E3D;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke: 1px #000000;
 }
 .reputation {
     padding: 85px 210px 85px 210px;
@@ -112,6 +132,11 @@ h2 {
     box-sizing: border-box;
 }
 
+.reputation-box p{
+    font-size: 16px;
+    color: #858EAD;
+}
+
 .icon {
     width: 40px;
     height: 40px;
@@ -135,6 +160,7 @@ h2 {
     margin-top: 18px;
     margin-bottom: 18px;
     font-size: 20px;
+    color: #3D445C;
 }
 
 .about-us {
@@ -302,6 +328,42 @@ h2 {
     padding-left: 12px;
 }
 
+.handshake::after {
+    content: url('../image/handshake.svg');
+    position: absolute;
+    width: 97px;
+    height: 97px;
+    top: -50px;
+    right: -50px;
+}
+
+.paper-pen::before {
+    content: url('../image/paper_pen.svg');
+    position: absolute;
+    width: 79px;
+    height: 79px;
+    top: -40px;
+    left: -30px;
+}
+
+.cup::after {
+    content: url('../image/Cup.svg');
+    position: absolute;
+    width: 93px;
+    height: 93px;
+    top: -20px;
+    right: -20px;
+}
+
+.plan::before {
+    content: url('../image/Project.svg');
+    position: absolute;
+    width: 84px;
+    height: 84px;
+    bottom: -30px;
+    right: -10px;
+}
+
 .statistics-right {
     width: 330px;
 }
@@ -349,15 +411,19 @@ h2 {
 .consultation a {
     font-size: 24px;
     color: white;
+    transition: color 0.1s ease-in-out;
 }
 
-.consultation button {
-    font-size: 18px;
-    border: 1px solid white;
-    color: white;
-    background-color: transparent;
-    padding: 16px 20px;
+.consultation a:hover {
+    font-size: 24px;
+    color: #C2C7D6;
 }
+
+.consultation a:active {
+    font-size: 24px;
+    color: #E0E3EB;
+}
+
 
 .project {
     padding: 88px 112px 138px 112px;
@@ -502,12 +568,26 @@ h2 {
     width: 280px;
     height: 40px;
     box-sizing: border-box;
+    border: 1px solid #E0E3EB ;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.feedback-form input::placeholder ,
+.feedback-form select::placeholder,
+.feedback-form textarea::placeholder {
+    color: #A3AAC2;
 }
 
 .feedback-form textarea {
     width: 575px;
     height: 135px;
     box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #E0E3EB ;
+    border-radius: 4px;
+    resize: none;
+    font-size: 18px;
 }
 
 .feedback-form button {
@@ -516,6 +596,14 @@ h2 {
     padding: 16px 83.5px;
    border: 0;
    font-size: 18px;
+}
+
+.feedback-form [data-option="selected"] {
+    color: #000;
+}
+
+.select-placeholder {
+    color: #A3AAC2;
 }
 
 .footer-shell-top {
@@ -547,6 +635,19 @@ h2 {
     padding: 8px 0;
 }
 
+.shell-top-contacts a {
+    text-decoration: none;
+    transition: color 0.1s ease-in-out;
+}
+
+.shell-top-contacts a:hover {
+    color: #667299;
+}
+
+.shell-top-contacts a:active {
+    color: #3D445C;
+}
+
 .shell-top-navigation {
     width: 376px;
 }
@@ -563,9 +664,30 @@ h2 {
 }
 
 .footer-nav-item a{
-    color: black;
+    color: #14171F;
     font-size: 18px;
     text-decoration: none;
+    transition: color 0.1s ease-in-out, filter 0.1s ease-in-out;
+}
+
+.footer-nav-item a:hover{
+    color: #667299;
+}
+
+.footer-nav-item a:active{
+    color: #3D445C;    
+}
+
+.footer-nav-item:last-child a{
+    color: #F9995D;
+}
+
+.footer-nav-item:last-child a:hover{
+    filter: brightness(1.4);
+}
+
+.footer-nav-item:last-child a:active{
+    filter: brightness(1.2);
 }
 
 .footer-shell-bottom {
@@ -574,10 +696,4 @@ h2 {
     padding: 26px 112px;
 }
 
-a:hover {
-    color: #3D445C;
-}
 
-a:active {
-    color: #667299;
-} 

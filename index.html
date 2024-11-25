@@ -33,17 +33,17 @@
                 <div class="reputation-box">
                     <div class="icon service-icon"></div>
                     <h3 class="heading-reputation-box">Лучшие услуги</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A pariatur, doloribus esse molestias asperiores enim optio, </p>    
+                    <p>Профессиональный подход и внимание к каждой детали.</p>    
                 </div>
                 <div class="reputation-box">
                     <div class="icon team-icon"></div>
                     <h3 class="heading-reputation-box">Лучшие команды</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A pariatur, doloribus esse molestias asperiores enim optio,</p>    
+                    <p>Опытные специалисты, работающие на результат.</p>    
                 </div>
                 <div class="reputation-box">
                     <div class="icon project-icon"></div>
                     <h3 class="heading-reputation-box">Лучшие проекрты</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A pariatur, doloribus esse molestias asperiores enim optio,</p>        
+                    <p>Современные решения для любых масштабов и задач.</p>        
                 </div>
             </div>
         </section>
@@ -53,8 +53,8 @@
             </div>
             <div class="about-us-text">
                 <h2>О нас</h2> 
-                <p>Более 30 лет мы занимаемся строительством мирового класса и за это время наладили множество прочных отношений. </p>
-                <p>Мы превратились в лидера отрасли и надежный ресурс для тех, кто стремится к качеству, инновациям и надежности при строительстве в США.</p>
+                <p>Компания «Холод» предлагает высококачественное климатическое оборудование, гарантируя надёжность и долговечность своей продукции.</p>
+                <p>Собственное производство, демократичные цены, профессиональный штат и работа с НДС. Мы проектируем вентиляционное оборудование, производим комплектующие, осуществляем монтаж под ключ и выполняем обслуживание.</p>
             </div>
         </section>
         <section class="services" id="services">
@@ -71,25 +71,25 @@
         <section class="statistics">
             <div class="statistics-left">
                 <div class="statistics-box">
-                    <p>1000+</p>
+                    <p class="handshake">1000+</p>
                     <p>Счастливых клиентов</p>
                 </div>
                 <div class="statistics-box">
-                    <p>420</p>
+                    <p class="paper-pen">420</p>
                     <p>Завершённых проектов</p>
                 </div>
                 <div class="statistics-box">
-                    <p>17</p>
-                    <p>Города в которых мы побывали</p>
+                    <p class="cup">17</p>
+                    <p>Городов в которых мы побывали</p>
                 </div>
                 <div class="statistics-box">
-                    <p>35</p>
+                    <p class="plan">15</p>
                     <p>Лет в бизнесе</p>
                 </div>
             </div>
             <div class="statistics-right">
                 <h2>15 Лет работы</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis officia aspernatur quod non, adipisci voluptates ex, dolor ad deserunt veniam facere in animi et, distinctio nisi. Nemo alias quae repudiandae!</p>
+                <p>Мы зарекомендовали себя как стабильный и ответственный партнёр для частных лиц и организаций.«Холод» — ваш выбор для комфортного и надёжного климата.</p>
                 <button>Связаться с нами</button>
             </div>
         </section>
@@ -241,19 +241,19 @@
             <h2 class="heading-feedback">Что мы можем для вас сделать?</h2>
             <p>Мы готовы работать над проектом любой сложности, будь то коммерческий или жилой.</p>
             <form  class="feedback-form" action="#" method="post">
-                
-                    <input type="text" placeholder="Ваше имя">
-                    <input type="email" placeholder="Ваш email">
-                    <select name="" id="" placeholder="Причина обращения*">
-                        <option value="" >Расчёт вентиляции</option>
-                        <option value="">Расчёт кондиционирования</option>
-                        <option value="">Ремонт</option>
-                        <option value="">Консультация</option>
-                        <option value="">Обновление оборудования</option>
+                    <input type="text" name="userName" placeholder="Ваше имя*" maxlength="70" required>
+                    <input type="email" name="userEmail" placeholder="Ваш email*" maxlength="40" required>
+                    <select name="reasonAppea" id="" placeholder="Причина обращения*" class="feedback-form-select select-placeholder" required>
+                        <option value=""  disabled selected>Причина обращения*</option>
+                        <option value="" data-option="selected">Расчёт вентиляции</option>
+                        <option value="" data-option="selected">Расчёт кондиционирования</option>
+                        <option value="" data-option="selected">Ремонт</option>
+                        <option value="" data-option="selected">Консультация</option>
+                        <option value="" data-option="selected">Обновление оборудования</option>
                     </select>
-                    <input type="tel" placeholder="Ваш номер телефона">
+                    <input class="feedback-form-tel" type="tel" name="userPhone" placeholder="Ваш номер телефона +7-___-___-____" maxlength="16">
                 
-                <textarea name="" id="" placeholder="Сообщение" ></textarea>
+                <textarea name="userMassange" id="" placeholder="Сообщение" maxlength="400"></textarea>
                 <button type="submit">Отправить</button>
             </form>
         </section>
@@ -263,7 +263,7 @@
             <div class="shell-top-contacts">
                 <table>
                     <tr>
-                        <td></td>
+                        <th>Телефон:</th>
                         <td><a href="tel:+73852601117">+7 (3852) 60-11-17</a></td>
                     </tr>
                     <tr>
@@ -283,10 +283,10 @@
             </div>
             <div class="shell-top-navigation">
                 <ul class="footer-nav-list">
-                    <li class="footer-nav-item"><a href="">Главная</a></li>
-                    <li class="footer-nav-item"><a href="">О нас</a></li>
-                    <li class="footer-nav-item"><a href="">Услуги</a></li>
-                    <li class="footer-nav-item"><a href="">Проекты</a></li>
+                    <li class="footer-nav-item"><a href="./index.html">Главная</a></li>
+                    <li class="footer-nav-item"><a href="./index.html#about-us">О нас</a></li>
+                    <li class="footer-nav-item"><a href="./index.html#services">Услуги</a></li>
+                    <li class="footer-nav-item"><a href="./index.html#project">Проекты</a></li>
                     <li class="footer-nav-item"><a href="">Кондиционеры</a></li>
                     <li class="footer-nav-item"><a href="">Вентиляция</a></li>
                     <li class="footer-nav-item"><a href="">Вакансии</a></li>
