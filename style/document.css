@@ -1,0 +1,83 @@
+.document {
+    padding-left: 112px;
+    padding-right: 112px;
+    background-color: #F6F8F7;
+}
+
+.header-document-main {
+    font-size: 48px;
+    text-align: center;
+    color: #292E3D;
+}
+
+.header-document {
+    list-style-position: inside;
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #292E3D;
+}
+
+.text-document {
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: left;
+    margin-bottom: 20px;
+    color:#292E3D;
+}
+
+.text-document::marker {
+    font-weight: bold;
+}
+
+.text-document:first-child {
+    margin-top: 30px;
+}
+
+.text-document:last-child {
+    margin-bottom: 0;
+}
+
+ol ul li::marker {
+    content: "- ";
+}
+
+ol ul li::first-letter {
+    text-transform: uppercase;
+}
+
+.main-caunter {
+    counter-reset: main;
+}
+
+.counter  {
+    counter-reset:new ;
+    counter-increment: main 1;
+}
+
+.element {
+    counter-increment: new 1;
+}
+
+.element::marker {
+    content: counter(main)"."counter(new)". ";
+}
+
+.counter-number::after {
+
+    content: counter(new);
+}
+
+.junior-counter {
+    counter-reset: junior 0;
+}
+
+.junior-element {
+    counter-increment: junior 1;
+}
+
+.junior-element::marker {
+    content: counter(main)"."counter(new)"."counter(junior)". ";
+}
