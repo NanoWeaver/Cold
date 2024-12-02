@@ -142,12 +142,30 @@
 }
 
 @media (max-width: 1024px) {
+    .hero {
+        padding-top: 100px;
+        padding-left: 40px;
+    }
+
+    .slogan-hero {
+        font-size: 60px;
+    }
     .about-us {
-        padding-top: 70px;
-        padding-bottom: 200px;
+        padding-left: 40px;
+        padding-bottom: 150px;
     }
     .about-us-image img {
-        width: 750px;
+        width: 600px;
         height: auto;
+    }
+
+    .about-us-text h2 {
+        margin-bottom: 20px;
+    }
+
+    .about-us-text {
+        padding: 25px 30px 30px 25px;
+        color: white;
+        font-size: 16px;
     }
 }

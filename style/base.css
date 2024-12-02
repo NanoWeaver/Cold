@@ -179,7 +179,7 @@ h2 {
 }
 
 .services-shell {
-    width: 1009px;
+    max-width: 1009px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -649,7 +649,9 @@ h2 {
 
 
 
-@media (max-width: 1024px) {
+
+
+@media (max-width: 1383px) {
     .header-main {
         padding-left: 80px;
         padding-right: 80px;
@@ -701,22 +703,52 @@ h2 {
     }
 }
 
-@media (max-width: 1383px) {
+@media (max-width: 1024px) {
+    h2 {
+        font-size: 30px;
+    }
+
     .header-main {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .nav-list {
+        gap: 15px;
     }
 
     .nav-list-item a {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .logo-header {
-        width: 200px;
+        width: 130px;
+    }
+
+    .heading-reputation, .heading-services, .heading-feedback {
+        font-size: 30px;
+    }
+
+    .reputation {
+        padding: 85px 100px 85px 100px;
     }
 
     .reputation-box {
-        width: 250px;
+        width: 200px;
+    }
+
+    .heading-reputation-box {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .reputation-box p {
+        font-size: 14px;
+    }
+
+    .services-shell {
+        
     }
 
     .statistics {
