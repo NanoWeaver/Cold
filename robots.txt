@@ -1,0 +1,48 @@
+User-agent: Yandex
+# Наиболее часто встречаемые расширения документов
+Disallow: /*.pdf
+Disallow: /*.xls
+Disallow: /*.doc
+Disallow: /*.ppt
+Disallow: /*.txt
+# Требуется для правильно обработки ПС
+Allow: /*/style/*.css
+Allow: /*/script/*.js
+# Картинки
+Allow: /*/image/*.jpg
+Allow: /*/image/*.jpeg
+Allow: /*/image/*.png
+Allow: /*/image/*.gif
+# Наиболее часто встречаемые метки для отслеживания рекламы
+Clean-param: utm_source&utm_medium&utm_term&utm_content&utm_campaign&yclid&gclid&_openstat&from /
+
+User-agent: Googlebot
+Disallow: /*.pdf
+Disallow: /*.xls
+Disallow: /*.doc
+Disallow: /*.ppt
+Disallow: /*.txt
+Allow: /*/style/*.css
+Allow: /*/script/*.js
+Allow: /*/image/*.jpg
+Allow: /*/image/*.jpeg
+Allow: /*/image/*.png
+Allow: /*/image/*.gif
+
+User-agent: *
+# Метки, фильтры и параметры для других ПС закрываем по классическому стандарту
+Disallow: /*utm
+Disallow: /*clid=
+Disallow: /*openstat
+Disallow: /*from
+Disallow: /*.pdf
+Disallow: /*.xls
+Disallow: /*.doc
+Disallow: /*.ppt
+Disallow: /*.txt
+Allow: /*/style/*.css
+Allow: /*/script/*.js
+Allow: /*/image/*.jpg
+Allow: /*/<папка содержащая медиа файлы>/*.jpeg
+Allow: /*/<папка содержащая медиа файлы>/*.png
+Allow: /*/<папка содержащая медиа файлы>/*.gif

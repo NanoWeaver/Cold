@@ -30,6 +30,20 @@
     margin-bottom: 37px;
 }
 
+.statistics {
+    padding: 120px 166px 60px 200px;
+}
+
+.statistics-box {
+    box-sizing: border-box;
+    width: 280px;
+    height: 155px;
+    border-radius: 4px;
+    box-shadow: 0 12px 16px -4px rgba(17, 24, 39, 0.1),
+                0 4px 6px -2px rgba(17, 24, 39, 0.05);
+    background-color: white;
+}
+
 .statistics-left {
     grid-template-columns: repeat(5, 110px);
 }
@@ -81,7 +95,10 @@
 }
 
 .handshake::after {
-    content: url('../image/handshake.svg');
+    content: '';
+    background-image: url('../image/handshake.svg');
+    background-size: 100% 100%;
+    background-position: top left;
     position: absolute;
     width: 97px;
     height: 97px;
@@ -90,7 +107,10 @@
 }
 
 .paper-pen::before {
-    content: url('../image/paper_pen.svg');
+    content: '';
+    background-image: url('../image/paper_pen.svg');
+    background-size: 100% 100%;
+    background-position: top left;
     position: absolute;
     width: 79px;
     height: 79px;
@@ -99,7 +119,10 @@
 }
 
 .cup::after {
-    content: url('../image/Cup.svg');
+    content: '';
+    background-image: url('../image/Cup.svg');
+    background-size: 100% 100%;
+    background-position: top left;
     position: absolute;
     width: 93px;
     height: 93px;
@@ -108,7 +131,10 @@
 }
 
 .plan::before {
-    content: url('../image/Project.svg');
+    content: '';
+    background-image: url('../image/Project.svg');
+    background-size: 100% 100%;
+    background-position: top left;
     position: absolute;
     width: 84px;
     height: 84px;
@@ -139,6 +165,11 @@
         width: 750px;
         height: auto;
     }
+
+    .statistics {
+        padding-left: 130px;
+        padding-right: 100px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -168,4 +199,308 @@
         color: white;
         font-size: 16px;
     }
+
+    .statistics {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .statistics-box {
+        width: 250px;
+        height: 140px;
+    }
+
+    .statistics-box p:first-child{
+        font-size: 60px;
+        margin-left: 20px;
+    }
+    
+    .statistics-box p:last-child{
+        font-size: 20px;
+        margin-left: 36px;
+    }
+    
+}
+
+@media (max-width: 834px) {
+    .hero {
+        padding-top: 100px;
+        padding-left: 40px;
+    }
+
+    .slogan-hero {
+        font-size: 48px;
+        width: 400px;
+    }
+    .about-us {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 70px;
+        
+    }
+
+    .about-us-image{
+        width: 50%;
+        height: auto;
+    }
+
+    .about-us-image img {
+        width: 100%;
+        height: auto;
+        display: block;;
+    }
+
+    .about-us-text h2 {
+        margin-bottom: 15px;
+    }
+
+    .about-us-text {
+        width: 50%;
+        padding: 21px 30px 21px 30px;
+        color: white;
+        font-size: 16px;
+        transform: translateX(0);
+    }
+
+    .statistics {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .statistics-left {
+        grid-template-columns: repeat(5, 80px);
+    }
+
+    .statistics-box {
+        width: 200px;
+        height: 120px;
+    }
+
+    .statistics-box p:first-child{
+        font-size: 48px;
+        margin-left: 20px;
+    }
+    
+    .statistics-box p:last-child{
+        font-size: 16px;
+        margin-left: 32px;
+    }
+
+    .handshake::after {
+        width: 77px;
+        height: 77px;
+        right: -40px;
+    }
+
+    .paper-pen::before {
+        width: 69px;
+        height: 69px;
+    }
+
+    .cup::after {
+        width: 83px;
+        height: 83px;
+        top: -30px;
+    }
+
+    .plan::before {
+        width: 74px;
+        height: 74px;
+    }
+    
+}
+
+@media (max-width: 601px) {
+    .hero {
+        padding-top: 80px;
+    }
+
+    .about-us {
+        flex-direction: column;
+        margin-bottom: -200px;
+    }
+
+    .about-us-image{
+        width: 100%;
+        height: auto;
+    }
+
+    .about-us-image img {
+        width: 100%;
+    }
+
+    .about-us-text {
+        width: 80%;
+        transform: translateY(-200px);
+        
+    }
+
+    .statistics {
+        padding-top: 60px;
+    }
+
+    .statistics-left {
+        grid-template-columns: repeat(5, 66px);
+    }
+
+    .statistics-right {
+        width: auto;
+    }
+
+    .statistics-box {
+        width: 200px;
+        height: 120px;
+    }
+
+    .statistics-box p:first-child{
+        font-size: 48px;
+        margin-left: 20px;
+    }
+    
+    .statistics-box p:last-child{
+        font-size: 16px;
+        margin-left: 32px;
+    }
+
+    .handshake::after {
+        width: 77px;
+        height: 77px;
+        right: -40px;
+    }
+
+    .paper-pen::before {
+        width: 69px;
+        height: 69px;
+    }
+
+    .cup::after {
+        width: 83px;
+        height: 83px;
+        top: -30px;
+    }
+
+    .plan::before {
+        width: 74px;
+        height: 74px;
+    }
+
+    .consultation {
+        background-image: url('../image/consultation_image_small.jpg');
+    }
+    
+}
+
+@media (max-width: 430px) {
+    .hero {
+        padding-top: 40px;
+        padding-left: 16px;
+        background-image: url("../image/hero1_small_dry.jpg");
+        background-size: auto;
+    }
+
+    .slogan-hero {
+        font-size: 32px;
+        width: 300px;
+    }
+
+    .about-us {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 150px;
+    }
+
+    .about-us-image img {
+        width: 100%;
+    }
+
+    .about-us-text {
+        width: 90%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .statistics {
+        padding-top: 60px;
+        padding-bottom: 100px;
+    }
+
+    .statistics-left {
+        grid-template-columns: repeat(4, 66px);
+    }
+
+    .statistics-left {
+        grid-template-rows: repeat(12, 40px);
+    }
+
+    .statistics-box:nth-child(1){
+        grid-column: 2 / 4;
+        grid-row: 1 / 4;
+        z-index: 3;
+    }
+    
+    .statistics-box:nth-child(2){
+        grid-row: 4 / 7;
+        z-index: 2;
+    }
+    
+    .statistics-box:nth-child(3){
+        grid-column: 2 / 4;
+        grid-row: 7 / 10;
+        z-index: 1;
+    }
+    
+    .statistics-box:nth-child(4){
+        grid-row: 10 / 13;
+        z-index: 0;
+    }
+
+    .statistics-right {
+        width: auto;
+    }
+
+    .statistics-box {
+        width: 174px;
+        height: 120px;
+    }
+
+    .statistics-box p:first-child{
+        font-size: 38px;
+        margin-left: 8px;
+    }
+    
+    .statistics-box p:last-child{
+        margin-left: 16px;
+        padding-left: 8px;
+    }
+
+    .handshake::after {
+        width: 77px;
+        height: 77px;
+        right: -40px;
+    }
+
+    .paper-pen::before {
+        width: 69px;
+        height: 69px;
+        top: -50px;
+        left: -40px;
+    }
+
+    .cup::after {
+        width: 83px;
+        height: 83px;
+        top: -30px;
+    }
+
+    .plan::before {
+        width: 74px;
+        height: 74px;
+    }
+
+    .consultation {
+        background-image: url('../image/consultation_image_very_small.jpg');
+        background-size: auto;
+        background-position: 60% 0;
+    }
+    
 }

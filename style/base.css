@@ -35,6 +35,17 @@ body {
     max-width: 1440px;
 }
 
+.blackout::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 1s ease-in;
+}
+
 h2 {
     font-size: 36px;
     margin: 0;
@@ -58,6 +69,10 @@ h2 {
 
 .clickable-button:active {
     background-color: #418ffb;
+}
+
+.logo-header {
+    display: block;
 }
 
 .nav-list {
@@ -94,6 +109,93 @@ h2 {
 .nav-list-item:last-child a:active {
     filter: brightness(1.2);
 }
+
+.menu {
+    display: none;
+}
+
+.burger-checkbox {
+    position: absolute;
+    visibility: hidden;
+  }
+  .burger {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: none;
+    background: transparent;
+    width: 40px;
+    height: 26px;
+  }
+  .burger::before,
+  .burger::after {
+    content: '';
+    left: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: #14171F;;
+  }
+  .burger::before {
+    top: 0;
+    box-shadow: 0 11px 0 0 #14171F;
+    transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+  }
+  .burger::after {
+    bottom: 0;
+    transition: bottom .3s .15s, transform .3s;
+  }
+  .burger-checkbox:checked + .burger::before {
+    top: 11px;
+    transform: rotate(45deg);
+    box-shadow: 0 6px 0 rgba(0,0,0,0);
+    transition: box-shadow .15s, top .3s, transform .3s .15s;
+  }
+  .burger-checkbox:checked + .burger::after {
+    bottom: 11px;
+    transform: rotate(-45deg);
+    transition: bottom .3s, transform .3s .15s;
+  }
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    position: absolute;
+    gap: 12px;
+    padding: 20px 0;
+    margin: 0;
+    background: white;
+    list-style-type: none;
+    transform: translateX(-100%);
+    transition: .3s;
+    width: 200px;
+    border: 2px solid #E0E3EB;
+    z-index: 1;
+  }
+  .menu-item {
+    display: block;
+    padding: 8px;
+    color: #14171F;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .menu-item:hover {
+    background: rgba(255,255,255,.2)
+  }
+  .burger-checkbox:checked ~ .menu-list {
+    transform: translateX(0);
+  }
+
+  .burger-checkbox:checked ~ .hero {
+    background-image: url('../image/project/commercial/Original/Biznes_Grrafit.jpeg');
+  }
 
 .hero {
     background-size: 100%;
@@ -139,6 +241,44 @@ h2 {
     border-radius: 4px;
     padding: 20px 18px 40px 20px ;
     box-sizing: border-box;
+    /* background-image: url("../image/reputation-box_team.svg"); */
+    background-repeat: space;
+    background-repeat: round;
+    position: relative;
+    overflow: hidden;
+}
+
+.reputation-box:nth-child(1)::after {
+    content: '';
+    width: 200px;
+    height: 200px;
+    display: block;
+    position: absolute;
+    background-color: #055494;
+    top: -100px;
+    right: -100px;
+	border-radius: 50%;
+    z-index: -1;
+}
+
+.reputation-box:nth-child(2)::after {
+    content: '';
+    width: 100%;
+    height: 60%;
+    display: block;
+    position: absolute;
+    background-color: #055494;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+.reputation-box:nth-child(3) {
+    background-image: url("../image/reputation-box_team.svg");
+}
+
+.reputation-box:nth-child(2)  .heading-reputation-box{
+    color: white;
 }
 
 .reputation-box p{
@@ -199,6 +339,12 @@ h2 {
     box-shadow: 0 0 37px -2px rgba(17, 24, 39, 0.05);
     color: #055494;
     text-align: center;
+} 
+
+.services-box:nth-child(1),
+.services-box:nth-child(4),
+.services-box:nth-child(5){
+    flex-grow: 1;
 }
 
 .services-box p {
@@ -247,7 +393,6 @@ h2 {
 
 .statistics {
     box-sizing: border-box;
-    padding: 120px 166px 60px 200px;
     display: flex;
     justify-content: space-between;
 }
@@ -257,29 +402,19 @@ h2 {
     grid-template-rows: repeat(9, 60px);
 }
 
-.statistics-box {
-    box-sizing: border-box;
-    width: 280px;
-    height: 155px;
-    border-radius: 4px;
-    box-shadow: 0 12px 16px -4px rgba(17, 24, 39, 0.1),
-                0 4px 6px -2px rgba(17, 24, 39, 0.05);
-    background-color: white;
-}
-
 .statistics-right h2 {
     color: #055494;
     font-size: 60px;
 }
  
- .statistics-right p {
+.statistics-right p {
     color: #525B7A;
     font-size: 20px;
     margin-top: 40px;
     margin-bottom: 67px;
 }
  
- .statistics-right button {
+.statistics-right button {
     color: white;
     font-size: 18px;
     padding: 16px 39px;
@@ -313,12 +448,10 @@ h2 {
 }
 
 .consultation a:hover {
-    font-size: 24px;
     color: #C2C7D6;
 }
 
 .consultation a:active {
-    font-size: 24px;
     color: #E0E3EB;
 }
 
@@ -370,7 +503,6 @@ h2 {
     display: flex; /* Гибкий контейнер для выравнивания блоков */
     overflow: hidden; /* Скрывает всё, что выходит за границы */
     width: 800px; /* Ширина видимой области карусели */
-    height: 717px; /* Высота карусели */
     transition: transform 0.3s ease-in-out; /* Плавный переход при прокрутке */
 }
 
@@ -389,16 +521,12 @@ h2 {
 
 .carousel-item {
     box-sizing: border-box;
-    width: 384px;
-    height: 331px;
     display: flex;
     flex-direction: column;
 }
 
 .carousel-item img {
     object-fit: fill;
-    width:384px;
-    height:247px;
     display: block;
     transition: opacity 0.5s ease-in;
 }
@@ -536,6 +664,7 @@ h2 {
 .user-agreement [type="checkbox"] {
     width: 20px;
     height: 20px;
+    margin: 0;
 }
 
 .feedback-form button {
@@ -669,11 +798,6 @@ h2 {
         width: 250px;
     }
 
-    .statistics {
-        padding-left: 130px;
-        padding-right: 100px;
-    }
-
     .consultation {
         padding-left: 80px;
         padding-right: 80px;
@@ -747,40 +871,670 @@ h2 {
         font-size: 14px;
     }
 
-    .services-shell {
-        
+    .statistics-right h2 {
+        font-size: 48px;
     }
 
-    .statistics {
-        padding-left: 130px;
-        padding-right: 100px;
+    .statistics-right p {
+        font-size: 20px;
+        margin-top: 40px;
+        margin-bottom: 67px;
     }
 
     .consultation {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .consultation h2 {
+        font-size: 30px;
+    }
+
+    .consultation p {
+        font-size: 20px;
+    }
+
+    .consultation a {
+        font-size: 20px;
     }
 
     .project {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .sorting-shell h2 {
+        font-size: 30px;
+    }
+
+    .sorting-item {
+        width: 200px;
+        font-size: 20px;
+    }
+
+    .project-crousel {
+        width: 630px;
+    }
+
+    .carousel-item-shell {
+        flex: 0 0 630px;
+        grid-template-rows: 275px 270px;
+        grid-template-columns: 299px 299px;
+        gap: 32px;
+    }
+
+    .carousel-item img {
+        width: 299px;
+        height: 195px;
+    }
+
+    .carousel-item-text {
+        padding: 16px 12px;
+    }
+
+    .carousel-item-text h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .carousel-item-text p {
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .switches button {
+        padding: 10px;
+        width: 180px;
     }
 
     .feedback {
-        padding: 60px 344px;
+        padding: 60px 217px;
+    }
+
+    .feedback p {
+        font-size: 18px;
+    }
+
+    .user-agreement [type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    .user-agreement {
+        font-size: 16px;
+    }
+
+    .feedback-form button {
+        padding: 14px 70px;
+        font-size: 16px;
     }
 
     .footer-shell-top {
-        padding-top: 30px;
-        padding-bottom: 30px;
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .shell-top-contacts th {
+        font-size: 16px;
+        padding: 8px 13px 8px 0;
+    }
+
+    .shell-top-contacts td, .shell-top-contacts td a {
+        font-size: 16px;
+        padding: 8px 0;
+    }
+
+    .footer-nav-list {
+        margin-bottom: 45px;
+    }
+
+    .footer-nav-item a {
+        font-size: 16px;
     }
 
     .footer-shell-bottom {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 834px) {
+    h2 {
+        font-size: 30px;
+    }
+
+    .header-main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .nav-list {
+        gap: 15px;
+        margin: 0;
+    }
+
+    .nav-list-item a {
+        font-size: 14px;
+        display: inline-block;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .logo-header {
+        width: 130px;
+    }
+
+    .heading-reputation, .heading-services, .heading-feedback {
+        font-size: 26px;
+    }
+
+    .reputation {
+        padding: 85px 60px 85px 60px;
+    }
+
+    .reputation-box {
+        width: 180px;
+    }
+
+    .heading-reputation-box {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    .reputation-box p {
+        font-size: 12px;
+    }
+
+    .services {
+        padding-top: 50px;
+        padding-bottom: 70px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .services-shell {
+        max-width: 1009px;
+        gap: 50px;
+    }
+
+    .services-box {
+        width: 200px;
+        height: 150px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        flex-grow: 1;
+    }
+
+    .services-box p {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    .statistics-right h2 {
+        font-size: 36px;
+    }
+
+    .statistics-right p {
+        font-size: 16px;
+        margin-top: 40px;
+        margin-bottom: 67px;
+    }
+
+    .statistics-left {
+        grid-template-rows: repeat(9, 40px);
+    }
+
+    .statistics-right button {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+
+    .consultation {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .consultation h2 {
+        font-size: 26px;
+    }
+
+    .consultation p {
+        font-size: 16px;
+    }
+
+    .consultation a {
+        font-size: 16px;
+    }
+
+    .project {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .sorting-shell h2 {
+        font-size: 26px;
+    }
+
+    .sorting-item {
+        line-height: 36px;
+        width: 170px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .project-crousel {
+        width: 520px;
+    }
+
+    .carousel-item-shell {
+        flex: 0 0 520px;
+        grid-template-rows: 224px 219px;
+        grid-template-columns: 244px 244px;
+        gap: 25px;
+    }
+
+    .carousel-item img {
+        width: 244px;
+        height: 159px;
+    }
+
+    .carousel-item-text {
+        padding: 16px 10px;
+    }
+
+    .carousel-item-text h3 {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .carousel-item-text p {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .switches button {
+        padding: 10px;
+        width: 180px;
+    }
+
+    .feedback {
+        padding: 60px 77px;
+    }
+
+    .feedback p {
+        font-size: 16px;
+    }
+
+    .user-agreement [type="checkbox"] {
+        width: 14px;
+        height: 14px;
+    }
+
+    .user-agreement {
+        font-size: 14px;
+    }
+
+    .feedback-form button {
+        padding: 14px 70px;
+        font-size: 16px;
+    }
+
+    .footer-shell-top {
         padding-top: 15px;
         padding-bottom: 15px;
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .shell-top-contacts th {
+        font-size: 14px;
+        padding: 8px 8px 8px 0;
+    }
+
+    .shell-top-contacts {
+        min-width: 357px;
+    }
+
+    .shell-top-contacts td, .shell-top-contacts td a {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+
+    .footer-nav-list {
+        margin-bottom: 10px;
+    }
+
+    .footer-nav-item a {
+        font-size: 16px;
+        display: inline-block;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .logo-footer {
+        width: 150px;
+    }
+
+    .footer-shell-bottom {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 601px) {
+    h2 {
+        font-size: 26px;
+    }
+
+    .nav-list {
+        display: none;
+        gap: 15px;
+        margin: 0;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .nav-list-item a {
+        padding-left: 16px;
+        font-size: 18px;
+    }
+
+    .logo-header {
+        width: 150px;
+    }
+
+    .reputation {
+        padding: 85px 40px;
+    }
+
+    .icon {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .reputation-box {
+        width: 140px;
+        padding: 15px 15px;
+        height: auto;
+        text-align: center;
+    }
+
+    .heading-reputation-box {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    .reputation-box p {
+        margin: 0;
+        font-size: 12px;
+    }
+
+    .statistics-right h2 {
+        font-size: 36px;
+    }
+
+    .statistics {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .statistics-left {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .consultation {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+
+    .consultation p {
+        margin-top: 20px;
+    }
+
+
+    .project {
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .sorting-shell h2 {
+        text-align: center;
+    }
+
+    .sorting-list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sorting-item {
+        width: auto;
+        border-left: 5px solid white;
+        padding-left: 15px;
+        margin: 0;
+    }
+
+    .sorting-item:last-child {
+        padding-right: 20px;
+    }
+
+    .sorting-item-selected {
+        border-color: #055494;
+    }
+
+    .project-crousel {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .carousel-item-shell {
+        gap: 32px;
+        grid-template-rows: 231px 231px;
+    }
+
+    .feedback {
+        padding: 60px 10px;
+    }
+
+    .feedback p {
+        font-size: 16px;
+    }
+
+    .user-agreement [type="checkbox"] {
+        width: 14px;
+        height: 14px;
+    }
+
+    .user-agreement {
+        font-size: 14px;
+    }
+
+    .feedback-form button {
+        padding: 14px 70px;
+        font-size: 16px;
+    }
+
+    .shell-top-contacts {
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 430px) {
+    h2 {
+        font-size: 26px;
+    }
+
+    .header-main {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .nav-list-item a {
+        font-size: 16px;
+    }
+
+    .reputation {
+        padding: 85px 40px 85px 40px;
+    }
+
+    .reputation-shell {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+    }
+
+    .reputation-box {
+        width: auto;
+    }
+
+    .services {
+        padding-top: 50px;
+        padding-bottom: 100px;
+    }
+
+    .services-shell {
+        gap: 50px;
+    }
+
+    .statistics-right h2 {
+        font-size: 36px;
+    }
+
+    .statistics-right p {
+        font-size: 16px;
+        margin-top: 40px;
+        margin-bottom: 67px;
+    }
+
+    .statistics-left {
+        grid-template-rows: repeat(9, 40px);
+    }
+
+
+    .consultation {
+        padding-left: 16px;
+        padding-right: 10px;
+    }
+
+    .project {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .sorting-list {
+        display: flex;
+        justify-content: space-between;
+        display: none;
+    }
+
+    .sorting-shell h2 {
+        font-size: 26px;
+    }
+
+    .sorting-item {
+        line-height: 36px;
+        width: 170px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .project-crousel {
+        width: 244px;
+        column-gap: 50px;
+    }
+
+    .carousel-item-shell {
+        flex: 0 0 244px;
+        grid-template-rows: 224px 224px;
+        grid-template-columns: 244px 244px;
+
+
+        column-gap: 50px;
+        row-gap: 32px;
+    }
+
+    .carousel-item img {
+        width: 244px;
+        height: 159px;
+    }
+
+    .switches button {
+        display: none;
+    }
+
+    .feedback {
+        padding: 60px 40px;
+    }
+
+    .feedback p {
+        font-size: 16px;
+    }
+
+    .feedback-form input, .feedback-form select {
+        width: 100%;
+    }
+
+    .footer-shell-top {
+        padding-left: 16px;
+        padding-right: 16px;
+        flex-direction: column;
+    }
+
+    .shell-top-contacts th {
+        min-width: 79px;
+    }
+
+    .shell-top-contacts {
+        min-width: 300px;
+    }
+
+    .shell-top-navigation {
+        width: auto;
+    }
+
+    .shell-top-contacts td, .shell-top-contacts td a {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+
+    .footer-nav-list {
+        margin-bottom: 10px;
+    }
+
+    .footer-nav-item a {
+        font-size: 16px;
+        display: inline-block;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .logo-footer {
+        width: 150px;
+    }
+
+    .footer-shell-bottom {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }
