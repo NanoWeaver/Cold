@@ -1,7 +1,6 @@
 const nextButton = document.getElementById('next');
 const prevButton = document.getElementById('prev');
 const select = document.querySelector('.feedback-form-select')
-const phoneInput = document.querySelector('.feedback-form-tel');
 const sortingItems = document.querySelectorAll('.sorting-item')
 const carouselItemShells = document.querySelectorAll('.carousel-item-shell');
 const placeTabs = document.querySelector('.dots-shell');
@@ -69,21 +68,6 @@ select.addEventListener('change', () => {
     select.classList.remove('select-placeholder');
 })
 
-phoneInput.addEventListener('input', () => {
-    let rawValue = phoneInput.value.replace(/\D/g, '');
-
-    if (!rawValue.startsWith('7')) {
-        rawValue = '7' + rawValue;
-    }
-
-    const formattedValue = rawValue.replace(
-        /^7(\d{3})(\d{3})(\d{4})$/,
-        '+7-$1-$2-$3'
-    );
-
-
-    phoneInput.value = formattedValue;
-});
 
 function carouselFilter(item, arr) {
     let itemData = item.getAttribute('data-project').split(' '); // Разделяем значения на массив
@@ -141,14 +125,56 @@ const maxSlides = dots.length * 2 - 1; // Максимальное количе�
 
 let startX = 0; // Начальная позиция касания
 let isDragging = false; // Флаг для отслеживания движения
+let smallScreen = false;
+
+
+function checkScreenWidth() {
+    if (window.innerWidth <= 430) {
+        smallScreen = true;
+        let spans = document.querySelectorAll('.dots');
+
+        currentSlide = 0;
+
+        for (let span of spans) {
+            span.classList.remove('dots-active')
+        }
+        spans[0].classList.add('dots-active');
+
+        for (let item of carouselItems) {
+            const offsetX = -currentSlide * (projectCrousel.offsetWidth + 50);
+            item.style.transform = `translateX(${offsetX}px)`;
+        }
+    } else {
+        smallScreen = false;
+        let spans = document.querySelectorAll('.dots');
+
+        currentSlide = 0;
+
+        for (let span of spans) {
+            span.classList.remove('dots-active')
+        }
+        spans[0].classList.add('dots-active');
+
+        for (let item of carouselItems) {
+            const offsetX = -currentSlide * (projectCrousel.offsetWidth + 50);
+            item.style.transform = `translateX(${offsetX}px)`;
+        }
+    }
+}
+
+window.addEventListener("resize", checkScreenWidth);
+checkScreenWidth(); // Проверяем ширину при загрузке страницы
 
 projectCrousel.addEventListener('touchstart', (event) => {
-    startX = event.touches[0].clientX;
-    isDragging = true;
+    if (smallScreen) {
+        startX = event.touches[0].clientX;
+        isDragging = true;
+    }
 });
 
 projectCrousel.addEventListener('touchmove', (event) => {
-    if (!isDragging) return;
+    if (smallScreen) {
+        if (!isDragging) return;
 
     const currentX = event.touches[0].clientX;
     const deltaX = currentX - startX;
@@ -160,9 +186,11 @@ projectCrousel.addEventListener('touchmove', (event) => {
             item.style.transform = `translateX(${offsetX}px)`;
         }
     }
+    }
 });
 
 projectCrousel.addEventListener('touchend', (event) => {
+   if (smallScreen) {
     isDragging = false;
     let spans = document.querySelectorAll('.dots');
 
@@ -188,25 +216,9 @@ projectCrousel.addEventListener('touchend', (event) => {
         const offsetX = -currentSlide * (projectCrousel.offsetWidth + 50);
         item.style.transform = `translateX(${offsetX}px)`;
     }
+   }
 });
 
-const burgerMenuCheckbox = document.querySelector('.burger-checkbox');
-
-burgerMenuCheckbox.addEventListener('click', () => {
-    document.body.classList.toggle('blackout')
-    console.log(burgerMenuCheckbox.checked)
-})
-
-const burgerItems = document.querySelectorAll('.menu-list .nav-list-item');
-const burgerMenu = document.querySelector('.menu-list');
-
-for (let burgerItem of burgerItems) {
-    burgerItem.addEventListener('click', () => {
-        document.body.classList.toggle('blackout');
-        burgerMenuCheckbox.checked = false;
-        console.log(burgerMenuCheckbox.checked)
-    })
-}
 
 // projectCrousel.addEventListener('touchstart', (event) => {
 //     let currentSlide = 1;

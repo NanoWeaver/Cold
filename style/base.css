@@ -38,12 +38,16 @@ body {
 .blackout::after {
     content: '';
     width: 100%;
-    height: 100%;
+    height: 130%;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 0;
     left: 0;
     transition: 1s ease-in;
+}
+
+.blackout {
+    overflow: hidden;
 }
 
 h2 {
@@ -248,37 +252,16 @@ h2 {
     overflow: hidden;
 }
 
-.reputation-box:nth-child(1)::after {
-    content: '';
-    width: 200px;
-    height: 200px;
-    display: block;
-    position: absolute;
-    background-color: #055494;
-    top: -100px;
-    right: -100px;
-	border-radius: 50%;
-    z-index: -1;
+.reputation-box:nth-child(1) {
+    background-image: url("../image/reputation-box_services.svg");
 }
 
-.reputation-box:nth-child(2)::after {
-    content: '';
-    width: 100%;
-    height: 60%;
-    display: block;
-    position: absolute;
-    background-color: #055494;
-    top: 0px;
-    right: 0px;
-    z-index: -1;
-}
-
-.reputation-box:nth-child(3) {
+.reputation-box:nth-child(2) {
     background-image: url("../image/reputation-box_team.svg");
 }
 
-.reputation-box:nth-child(2)  .heading-reputation-box{
-    color: white;
+.reputation-box:nth-child(3) {
+    background-image: url("../image/reputation-box_project.svg");
 }
 
 .reputation-box p{
@@ -566,6 +549,15 @@ h2 {
     border: 0;
     background-color: #292E3D;
     color: white;
+    transition:background-color 0.1s ease-in-out;;
+}
+
+.switches button:hover {
+    background-color: #858EAD;
+}
+
+.switches button:active {
+    background-color: #525B7A;
 }
 
 .dots {

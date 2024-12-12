@@ -362,7 +362,7 @@
                         <span class="dots"></span>
                         <span class="dots"></span>
                     </div>
-                    <button id="next">← Вперед</button>
+                    <button id="next">Вперед →</button>
                 </div>
             </div>
         </article>
@@ -370,20 +370,20 @@
             <h2 tabindex="0" class="heading-feedback">Что мы можем для вас сделать?</h2>
             <p>Мы готовы работать над проектом любой сложности, будь то коммерческий или жилой.</p>
             <form  class="feedback-form" action="#" method="post">
-                    <input type="text" name="userName" placeholder="Ваше имя*" maxlength="70" required>
+                    <input type="text" name="userName" autocomplete="username" placeholder="Ваше имя*" maxlength="70" required>
                     <input type="email" name="userEmail" placeholder="Ваш email*" maxlength="40" required>
                     <select aria-label="Причина обращения*" name="reasonAppea" id="" placeholder="Причина обращения*" class="feedback-form-select select-placeholder" required>
                         <option value=""  disabled selected>Причина обращения*</option>
                         <option value="" data-option="selected">Расчёт вентиляции</option>
-                        <option value="" data-option="selected">Расчёт кондиционирования</option>
                         <option value="" data-option="selected">Ремонт</option>
                         <option value="" data-option="selected">Консультация</option>
                         <option value="" data-option="selected">Обновление оборудования</option>
+                        <option value="" data-option="selected">Другое</option>
                     </select>
-                    <input class="feedback-form-tel" type="tel" name="userPhone" placeholder="Ваш номер телефона +7-___-___-____" maxlength="16">
+                    <input class="feedback-form-tel" type="tel" name="userPhone" placeholder="Ваш номер телефона">
                 <textarea name="userMassange" id="" placeholder="Сообщение" maxlength="400"></textarea>
                 <label class="user-agreement">
-                    <input type="checkbox" required>
+                    <input name="consent-to-processing" type="checkbox" required>
                     Я принимаю условия <a href="./user_agreement.html">Пользовательского соглашения</a> и даю согласие на обработку персональных данных в соответствии с <a href="./privacy_policy.html">Политикой конфиденциальности</a>.
                 </label>
                 <button class="clickable-button" type="submit">Отправить</button>
@@ -433,5 +433,12 @@
         </div>
     </footer>
     <script src="./script/script.js"></script>
+    <script src="./script/burger.js"></script>
+    <script src="./script/jquery-1.9.0.min.js"></script>
+    <script src="./script/jquery.maskedinput.min.js"></script>
+    <script>
+        $.mask.definitions['h'] = "[0|1|3|4|5|6|7|9]"
+        $(".feedback-form-tel").mask("+7 (h99) 999-99-99");
+    </script>
 </body>
 </html>
