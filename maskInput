@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     phoneInput.addEventListener('input', handleInput);
     phoneInput.addEventListener('keydown', handleBackspace);
 
-    // Применяем маску при фокусе
+    // При фокусе добавляем маску, если поле пустое
     function applyMask() {
-        if (!phoneInput.value || phoneInput.value === maskTemplate) {
+        if (!phoneInput.value) {
             phoneInput.value = maskTemplate;
             setCaretPosition(phoneInput, maskTemplate.indexOf('_'));
         }
@@ -18,33 +18,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Обработка ввода
     function handleInput(event) {
-        let input = phoneInput.value.replace(/\D/g, ''); // Убираем все, кроме цифр
-        const caretPos = phoneInput.selectionStart;
+        let rawValue = phoneInput.value.replace(/[^0-9]/g, ''); // Убираем все, кроме цифр
         const maskArray = maskTemplate.split('');
         let index = 0;
 
-        // Перебираем цифры и вставляем их в маску
         for (let i = 0; i < maskArray.length; i++) {
-            if (index >= input.length) break;
-            if (maskArray[i] === '_') {
-                if (i === 4 && input[index] === '8') continue; // Запрещаем 8 первой цифрой в скобках
-                maskArray[i] = input[index++];
+            if (maskArray[i] === '_' && rawValue[index]) {
+                if (i === 4 && rawValue[index] === '8') continue; // Запрещаем 8 первой цифрой в скобках
+                maskArray[i] = rawValue[index++];
             }
         }
 
-        // Сохраняем формат маски
         phoneInput.value = maskArray.join('');
-        setCaretPosition(phoneInput, caretPos);
+        setCaretPosition(phoneInput, phoneInput.value.indexOf('_') === -1 ? phoneInput.value.length : phoneInput.value.indexOf('_'));
     }
 
-    // Обработка удаления символов
+    // Обработка нажатия Backspace
     function handleBackspace(event) {
         if (event.key === 'Backspace') {
             event.preventDefault();
             const start = phoneInput.selectionStart;
+            const end = phoneInput.selectionEnd;
 
-            // Удаляем символ перед кареткой
-            if (start > 0) {
+            if (start === end && start > 0) {
                 const valueArray = phoneInput.value.split('');
                 for (let i = start - 1; i >= 0; i--) {
                     if (maskTemplate[i] === '_') {
@@ -59,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Устанавливаем позицию каретки
-    function setCaretPosition(elem, pos) {
-        setTimeout(() => elem.setSelectionRange(pos, pos), 0);
+    function setCaretPosition(input, pos) {
+        setTimeout(() => input.setSelectionRange(pos, pos), 0);
     }
 });
 </script>
