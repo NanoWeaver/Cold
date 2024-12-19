@@ -18,48 +18,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Обработка ввода
     function handleInput(event) {
-        const input = phoneInput.value.replace(/\D/g, ''); // Убираем все, кроме цифр
-        let formattedValue = maskTemplate;
+        let input = phoneInput.value.replace(/\D/g, ''); // Убираем все, кроме цифр
+        const caretPos = phoneInput.selectionStart;
+        const maskArray = maskTemplate.split('');
         let index = 0;
 
         // Перебираем цифры и вставляем их в маску
-        for (let char of input) {
-            if (formattedValue.indexOf('_') === -1) break; // Маска заполнена
-            if (index === 0 && char === '8') continue; // Запрещаем 8 первой цифрой в скобках
-            formattedValue = formattedValue.replace('_', char);
-            index++;
+        for (let i = 0; i < maskArray.length; i++) {
+            if (index >= input.length) break;
+            if (maskArray[i] === '_') {
+                if (i === 4 && input[index] === '8') continue; // Запрещаем 8 первой цифрой в скобках
+                maskArray[i] = input[index++];
+            }
         }
 
-        phoneInput.value = formattedValue;
-
-        // Устанавливаем каретку после последнего введенного символа
-        setCaretPosition(phoneInput, formattedValue.indexOf('_') !== -1 ? formattedValue.indexOf('_') : formattedValue.length);
+        // Сохраняем формат маски
+        phoneInput.value = maskArray.join('');
+        setCaretPosition(phoneInput, caretPos);
     }
 
     // Обработка удаления символов
     function handleBackspace(event) {
         if (event.key === 'Backspace') {
             event.preventDefault();
+            const start = phoneInput.selectionStart;
 
-            let start = phoneInput.selectionStart;
-            let end = phoneInput.selectionEnd;
-
-            // Удаляем один символ перед кареткой
-            if (start === end && start > 0) {
-                while (start > 0 && maskTemplate[start - 1] !== '_') {
-                    start--;
-                }
+            // Удаляем символ перед кареткой
+            if (start > 0) {
                 const valueArray = phoneInput.value.split('');
-                valueArray[start - 1] = '_'; // Возвращаем подчеркивание
-                phoneInput.value = valueArray.join('');
-                setCaretPosition(phoneInput, start - 1);
+                for (let i = start - 1; i >= 0; i--) {
+                    if (maskTemplate[i] === '_') {
+                        valueArray[i] = '_';
+                        phoneInput.value = valueArray.join('');
+                        setCaretPosition(phoneInput, i);
+                        break;
+                    }
+                }
             }
         }
     }
 
     // Устанавливаем позицию каретки
     function setCaretPosition(elem, pos) {
-        elem.setSelectionRange(pos, pos);
+        setTimeout(() => elem.setSelectionRange(pos, pos), 0);
     }
 });
 </script>
