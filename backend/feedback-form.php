@@ -1,37 +1,59 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Получение данных из формы
-    $userName = htmlspecialchars(trim($_POST['userName']));
-    $userEmail = htmlspecialchars(trim($_POST['userEmail']));
-    $reasonAppea = htmlspecialchars(trim($_POST['reasonAppea']));
-    $userPhone = htmlspecialchars(trim($_POST['userPhone']));
-    $userMessage = htmlspecialchars(trim($_POST['userMassange']));
+// Получаем данные из формы
+$userName = htmlspecialchars(trim($_POST['userName']));
+$userEmail = htmlspecialchars(trim($_POST['userEmail']));
+$reasonAppea = htmlspecialchars(trim($_POST['reasonAppea']));
+$userPhone = htmlspecialchars(trim($_POST['userPhone']));
+$userMessage = htmlspecialchars(trim($_POST['userMassange']));
 
-    // Почта клиента (куда отправляем письмо)
-    $to = "holod@холод22.рф";
+// Проверка на заполнение обязательных полей
+if (empty($userName) || empty($userEmail) || empty($reasonAppea)) {
+    die('Пожалуйста, заполните обязательные поля.');
+}
 
-    // Тема письма
-    $subject = "Обратная связь: $reasonAppea";
+// Формируем текст письма
+$message = "Здравствуйте!\n\n";
+$message .= "Вы получили новое сообщение с сайта:\n\n";
+$message .= "Имя: $userName\n";
+$message .= "Email: $userEmail\n";
+$message .= "Телефон: $userPhone\n";
 
-    // Содержание письма
-    $message = "Вы получили новое сообщение.\n\n";
-    $message .= "Имя: $userName\n";
-    $message .= "Email: $userEmail\n";
-    $message .= "Телефон: $userPhone\n";
-    $message .= "Причина обращения: $reasonAppea\n";
-    $message .= "Сообщение: $userMessage\n";
+$reasonMap = [
+    'ventilation' => 'Расчёт вентиляции',
+    'conditioning' => 'Расчёт кондиционирования',
+    'repair' => 'Ремонт',
+    'consultation' => 'Консультация',
+    'upgrade' => 'Обновление оборудования',
+    'other' => 'Другое',
+    'ventilationJob' => 'Вакансия Монтажник систем вентиляции',
+    'conditioningJob' => 'Вакансия Монтажник систем кондиционирования',
+    'designEngineer' => 'Инженер проектировщик ОВИК',
+    'anotherVacancy' => 'Предложить свою вакансии',
+    'consultationJob' => 'Консультация по поводу работы'
+];
 
-    // Заголовки письма
-    $headers = "Reply-To: $userEmail\r\n";
-    $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
-
-    // Отправка письма
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Ваше сообщение отправлено. Спасибо за обращение!";
-    } else {
-        echo "Ошибка при отправке сообщения. Попробуйте ещё раз.";
-    }
+// Проверяем, что переданное значение есть в массиве
+if (!empty($_POST['reasonAppea']) && array_key_exists($_POST['reasonAppea'], $reasonMap)) {
+    $reasonAppea = $reasonMap[$_POST['reasonAppea']];
 } else {
-    echo "Данные не были отправлены. Попробуйте снова.";
+    $reasonAppea = 'Не указано';
+}
+
+$message .= "Причина обращения: $reasonAppea\n";
+$message .= "Сообщение:\n$userMessage\n\n";
+$message .= "С уважением, Сайт холод22.рф";
+
+// Указываем заголовки
+$headers = "From: holod22.рф <noreply@holod22.рф>\r\n";
+$headers .= "Reply-To: $userEmail\r\n";
+
+// Адрес, куда будет отправлено письмо
+$to = 'kholod22@bk.ru';
+
+// Отправляем письмо
+if (mail($to, 'Новое сообщение с формы обратной связи', $message, $headers)) {
+    echo 'Сообщение успешно отправлено!';
+} else {
+    echo 'Ошибка при отправке сообщения.';
 }
 ?>

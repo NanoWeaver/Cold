@@ -3,25 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta
+        name="description"
+        content="Мы — компания «Холод», занимаемся проектированием, монтажом и обслуживанием систем вентиляции и кондиционирования в Барнауле и Алтайском крае. Если вы профессионал своего дела или хотите развиваться в этом направлении, присоединяйтесь к нашей команде!">
+    <meta 
+        name="keywords" 
+        content="Монтажник систем вентиляции Барнаул, монтаж кондиционеров Барнаул, Монтажник систем кондиционирования в Барнауле, ремонт кондиционеров, Инженер проектировщик ОВИК в Барнауле, работа в Барнаул, Ballu, Daikin, климатическое оборудование Барнаул">
+    <title>Работа в компании «Холод»</title>
     <link rel="stylesheet" href="./style/base.css">
     <link rel="stylesheet" href="./style/document.css">
     <link rel="stylesheet" href="./style/job.css">
+    <link rel="icon" href="./image/favicon.svg" type="image/svg+xml">
+     <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(99246654, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/99246654" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+ <!-- Yandex.Metrika counter -->
+ <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(99247400, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/99247400" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <header class="header-main">
-        <a href="./index.html">
+        <a href="/index.html">
             <img src="./image/trace.svg" alt="Логотип компании" width="222.22" height="34" class="logo-header">
         </a>
         <nav class="nav-main">
             <ul class="nav-list">
-               <li class="nav-list-item"><a href="./index.html">Главная</a></li>
-               <li class="nav-list-item"><a href="./index.html#about-us">О нас</a></li>
-               <li class="nav-list-item"><a href="./index.html#services">Услуги</a></li>
-               <li class="nav-list-item"><a href="./index.html#project">Проекты</a></li>
-               <li class="nav-list-item"><a href="./conditioner.html">Кондиционеры</a></li>
-               <li class="nav-list-item"><a href="./ventilation.html">Вентиляция</a></li>
-               <li class="nav-list-item"><a href="./index.html#feedback">Связаться с нами</a></li>
+               <li class="nav-list-item"><a href="/index.html">Главная</a></li>
+               <li class="nav-list-item"><a href="/index.html#about-us">О нас</a></li>
+               <li class="nav-list-item"><a href="/index.html#services">Услуги</a></li>
+               <li class="nav-list-item"><a href="/index.html#project">Проекты</a></li>
+               <li class="nav-list-item"><a href="/conditioner.html">Кондиционеры</a></li>
+               <li class="nav-list-item"><a href="/ventilation.html">Вентиляция</a></li>
+               <li class="nav-list-item"><a href="/index.html#feedback">Связаться с нами</a></li>
             </ul>
             <div class="menu">
                 <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
@@ -141,17 +182,18 @@
         <section class="feedback" id="feedback">
             <h2 class="heading-feedback" tabindex="0">Мы ждём профессионалов в сфере вентиляции и кондиционирования.</h2>
             <p>Звоните или отправляйте резюме, и мы обсудим вашу будущую работу в компании «Холод»!</p>
-            <form  class="feedback-form" action="#" method="post">
+            <form  class="feedback-form" action="./backend/feedback-form.php" method="post">
                     <input type="text" autocomplete="username" name="userName" placeholder="Ваше имя*" maxlength="70" required>
                     <input type="email" name="userEmail" placeholder="Ваш email*" maxlength="40" required>
                     <select aria-label="Причина обращения*" name="reasonAppea" id="" placeholder="Причина обращения*" class="feedback-form-select select-placeholder" required>
                         <option value=""  disabled selected>Причина обращения*</option>
-                        <option value="" data-option="selected">Вакансия Монтажник систем вентиляции</option>
-                        <option value="" data-option="selected">Вакансия Монтажник систем кондиционирования</option>
-                        <option value="" data-option="selected">Предложить свою вакансии</option>
-                        <option value="" data-option="selected">Консультация</option>
+                        <option value="ventilationJob" data-option="selected">Вакансия Монтажник систем вентиляции</option>
+                        <option value="conditioningJob" data-option="selected">Вакансия Монтажник систем кондиционирования</option>
+                        <option value="designEngineer" data-option="selected">Инженер проектировщик ОВИК</option>
+                        <option value="anotherVacancy" data-option="selected">Предложить свою вакансии</option>
+                        <option value="consultationJob" data-option="selected">Консультация</option>
                     </select>
-                    <input class="feedback-form-tel" type="tel" name="userPhone" placeholder="Ваш номер телефона">
+                    <input class="feedback-form-tel" type="tel" name="userPhone" placeholder="Ваш номер телефона" maxlength="18">
                 <textarea name="userMassange" id="" placeholder="Сообщение" maxlength="400"></textarea>
                 <label class="user-agreement">
                     <input name="consent-to-processing" type="checkbox" required>
@@ -186,13 +228,13 @@
             </div>
             <div class="shell-top-navigation">
                 <ul class="footer-nav-list">
-                    <li class="footer-nav-item"><a href="./index.html">Главная</a></li>
-                    <li class="footer-nav-item"><a href="./index.html#about-us">О нас</a></li>
-                    <li class="footer-nav-item"><a href="./index.html#services">Услуги</a></li>
-                    <li class="footer-nav-item"><a href="./index.html#project">Проекты</a></li>
-                    <li class="footer-nav-item"><a href="./conditioner.html">Кондиционеры</a></li>
-                    <li class="footer-nav-item"><a href="./ventilation.html">Вентиляция</a></li>
-                    <li class="footer-nav-item"><a href="./job_openings.html">Вакансии</a></li>
+                    <li class="footer-nav-item"><a href="/index.html">Главная</a></li>
+                    <li class="footer-nav-item"><a href="/index.html#about-us">О нас</a></li>
+                    <li class="footer-nav-item"><a href="/index.html#services">Услуги</a></li>
+                    <li class="footer-nav-item"><a href="/index.html#project">Проекты</a></li>
+                    <li class="footer-nav-item"><a href="/conditioner.html">Кондиционеры</a></li>
+                    <li class="footer-nav-item"><a href="/ventilation.html">Вентиляция</a></li>
+                    <li class="footer-nav-item"><a href="/job_openings.html">Вакансии</a></li>
                 </ul>
                 <a href="./index.html">
                     <img src="./image/trace.svg" alt="Логотип компании" width="222.22" height="34" class="logo-footer">
@@ -204,11 +246,6 @@
         </div>
     </footer>
     <script src="./script/burger.js"></script>
-    <script src="./script/jquery-1.9.0.min.js"></script>
-    <script src="./script/jquery.maskedinput.min.js"></script>
-    <script>
-        $.mask.definitions['h'] = "[0|1|3|4|5|6|7|9]"
-        $(".feedback-form-tel").mask("+7 (h99) 999-99-99");
-    </script>
+    <script src="./script/maskinput.js"></script>
 </body>
 </html>
